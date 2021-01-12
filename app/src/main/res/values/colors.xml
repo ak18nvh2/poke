@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#69b9e3</color>
+    <color name="processBackgroundTintColor">#f0f0f0</color>
+    <color name="red">#FF2B2B</color>
 </resources>
