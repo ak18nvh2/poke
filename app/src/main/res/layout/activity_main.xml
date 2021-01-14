@@ -28,6 +28,19 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.27"></androidx.constraintlayout.widget.Guideline>
 
+    <TextView
+        android:id="@+id/tv_nameOfPokemon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:text="Squirtle"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/btn_HideOrShowDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+       android:textSize="18dp"
+        app:layout_constraintTop_toTopOf="@id/btn_HideOrShowDetail"></TextView>
+
     <ImageView
         android:id="@+id/btn_HideOrShowDetail"
         android:layout_width="22dp"
@@ -38,14 +51,26 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
 
+    <TextView
+        android:id="@+id/tv_topOfInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toTopOf="@id/cl_information"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_topOfAvatar"></TextView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_information"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/background_custom_two_corner"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/background_custom_four_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gl_topOfCardView">
+        app:layout_constraintTop_toBottomOf="@id/tv_topOfInformation">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_topOfName"
@@ -62,16 +87,19 @@
             app:layout_constraintGuide_percent="0.19"></androidx.constraintlayout.widget.Guideline>
 
         <TextView
+            android:id="@+id/tv_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Squirtle"
             android:textColor="#4f4f4f"
             android:textSize="36dp"
-            app:layout_constraintBottom_toTopOf="@id/gl_botOfName"
+            app:layout_constraintBottom_toTopOf="@id/img_tag"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gl_topOfName"></TextView>
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="60dp"
+            ></TextView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_topOfTag"
@@ -90,12 +118,12 @@
         <ImageView
             android:id="@+id/img_tag"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="50dp"
             android:src="@drawable/tag_water"
-            app:layout_constraintBottom_toTopOf="@id/gl_botOfTag"
+            app:layout_constraintBottom_toTopOf="@id/tv_description"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gl_topOfTag"></ImageView>
+            app:layout_constraintTop_toBottomOf="@id/tv_Name"></ImageView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_topOfDescription"
@@ -112,17 +140,20 @@
             app:layout_constraintGuide_percent="0.44"></androidx.constraintlayout.widget.Guideline>
 
         <TextView
+            android:id="@+id/tv_description"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="Squirtle’s shell is not merely used for protection.
 The shell’s rounded shape and the grooves on its surface help minimize resistance in water, enabling this pokemon to swim at high speed."
-            app:layout_constraintBottom_toTopOf="@+id/gl_botOfDescription"
+            app:layout_constraintBottom_toTopOf="@+id/cl_tabBar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gl_topOfDescription"></TextView>
+            app:layout_constraintTop_toBottomOf="@id/img_tag"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            ></TextView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_topOfTabBar"
@@ -140,29 +171,31 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#fafafa"
-            app:layout_constraintBottom_toTopOf="@id/gl_botOfTabBar"
+            android:layout_height="68dp"
+            android:background="@drawable/background_custom_four_corner"
+            android:id="@+id/cl_tabBar"
+            android:layout_marginTop="22dp"
+            app:layout_constraintBottom_toTopOf="@id/fm_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gl_topOfTabBar">
+            app:layout_constraintTop_toBottomOf="@id/tv_description">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_Stats"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:cardBackgroundColor="#559edf"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/dark_sky_blue"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/cv_Evolutions"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/tv_Stats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -175,13 +208,13 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
                 android:id="@+id/cv_Evolutions"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#fafafa"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/cv_Stats"
                 app:layout_constraintRight_toLeftOf="@id/cv_Moves"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -189,6 +222,7 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="EVOLUTIONS"
+                    android:id="@+id/tv_evolutions"
                     android:textColor="#559edf"
                     android:textSize="16dp"></TextView>
             </androidx.cardview.widget.CardView>
@@ -197,14 +231,14 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
                 android:id="@+id/cv_Moves"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#fafafa"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/cv_Evolutions"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
@@ -212,12 +246,33 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="MOVES"
+                    android:id="@+id/tv_moves"
                     android:textColor="#559edf"
                     android:textSize="16dp"></TextView>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/fm_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/cl_information"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_tabBar"
+            android:layout_marginTop="10dp"
+            ></FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_topOfStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.73"></androidx.constraintlayout.widget.Guideline>
+
 
 
     <ImageView
@@ -229,242 +284,4 @@ The shell’s rounded shape and the grooves on its surface help minimize resista
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gl_topOfAvatar"></ImageView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_topOfStats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.73"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_leftOfNameStats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.088"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_rightOfStats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.912"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_rightOfNameStats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.171"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_leftOfProcess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.27"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_botOfSTATS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9"></androidx.constraintlayout.widget.Guideline>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_rightOfNumberStats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.251"></androidx.constraintlayout.widget.Guideline>
-
-    <TextView
-        android:id="@+id/tv_HP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HP"
-        app:layout_constraintBottom_toTopOf="@id/tv_ATK"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/gl_topOfStats"></TextView>
-
-    <TextView
-        android:id="@+id/tv_ATK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ATK"
-        app:layout_constraintBottom_toTopOf="@id/tv_DEF"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_HP"></TextView>
-
-    <TextView
-        android:id="@+id/tv_DEF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DEF"
-        app:layout_constraintBottom_toTopOf="@id/tv_SATK"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_ATK"></TextView>
-
-    <TextView
-        android:id="@+id/tv_SATK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SATK"
-        app:layout_constraintBottom_toTopOf="@id/tv_SDEF"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_DEF"></TextView>
-
-    <TextView
-        android:id="@+id/tv_SDEF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SDEF"
-        app:layout_constraintBottom_toTopOf="@id/tv_SPD"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_SATK"></TextView>
-
-    <TextView
-        android:id="@+id/tv_SPD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SPD"
-        app:layout_constraintBottom_toTopOf="@id/gl_botOfSTATS"
-        app:layout_constraintLeft_toRightOf="@id/gl_leftOfNameStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_SDEF"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfHP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfATK"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/gl_topOfStats"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfATK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfDEF"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfHP"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfDEF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSATK"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfATK"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfSATK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSDEF"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfDEF"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfSDEF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSPD"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfSATK"></TextView>
-
-    <TextView
-        android:id="@+id/tv_numberOfSPD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="000"
-        app:layout_constraintBottom_toTopOf="@id/gl_botOfSTATS"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfNumberStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfSDEF"></TextView>
-
-    <ProgressBar
-        android:id="@+id/pb_spd"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="20"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        app:layout_constraintBottom_toTopOf="@id/gl_botOfSTATS"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfSDEF" />
-
-    <ProgressBar
-        android:id="@+id/pb_SDEF"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="45"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSPD"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfSATK" />
-
-    <ProgressBar
-        android:id="@+id/pb_SATK"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="60"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSDEF"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfDEF" />
-
-    <ProgressBar
-        android:id="@+id/pb_DEF"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="20"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfSATK"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfATK" />
-
-    <ProgressBar
-        android:id="@+id/pb_ATK"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="25"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        android:progressTint="@color/blue"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfDEF"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/tv_numberOfHP" />
-
-    <ProgressBar
-        android:id="@+id/pb_HP"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:max="100"
-        android:progress="89"
-        android:progressBackgroundTint="@color/processBackgroundTintColor"
-        app:layout_constraintBottom_toTopOf="@id/tv_numberOfATK"
-        app:layout_constraintLeft_toLeftOf="@id/gl_leftOfProcess"
-        app:layout_constraintRight_toLeftOf="@id/gl_rightOfStats"
-        app:layout_constraintTop_toBottomOf="@id/gl_topOfStats" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

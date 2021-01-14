@@ -10,4 +10,6 @@
     <color name="blue">#69b9e3</color>
     <color name="processBackgroundTintColor">#f0f0f0</color>
     <color name="red">#FF2B2B</color>
+    <color name="dark_sky_blue">#559edf</color>
+    <color name="bg_tab_bar">#fafafa</color>
 </resources>
